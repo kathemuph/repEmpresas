@@ -15,6 +15,7 @@ int main() {
 	ifstream datos2024("input/ingresos-2024.csv");
 	ifstream datos2025("input/ingresos-2025.csv");
 	ofstream totales("output/totales.txt");
+	if (datos2023.is_open() && datos2024.is_open() && datos2025.is_open() && totales.is_open()) {
 	
 	while (getline(datos2023, linea) && empresa < 5) {
 		stringstream ss(linea);
@@ -76,6 +77,9 @@ int main() {
 	datos2024.close();
 	datos2025.close();
 	totales.close();
+} else {
+        cout << "Error al abrir uno o mas archivos." << endl;
+    }
 	
 	return 0;
 }
